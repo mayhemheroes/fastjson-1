@@ -46,9 +46,11 @@ jobs:
       uses: forallsecure/mcode-action@long-runs
       with:
         mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
-        args: --image ${{ steps.meta.outputs.tags }} --file mayhem/JsonFuzzer.mayhemfile
-          --cmd '/out/jazzer_driver --agent_path=/out/jazzer_agent_deploy.jar --cp=/out/fastjson.jar::/out
-          --target_class=JsonFuzzer --jvm_args="-Xmx2048m"' --env LD_LIBRARY_PATH="/usr/lib/jvm/java-15-openjdk-amd64/lib/server":/out
+        args: --image ${{ steps.meta.outputs.tags }} --file 
+          mayhem/JsonFuzzer.mayhemfile --cmd '/out/jazzer_driver 
+          --agent_path=/out/jazzer_agent_deploy.jar --cp=/out/fastjson.jar::/out
+          --target_class=JsonFuzzer --jvm_args="-Xmx2048m"' --env 
+          LD_LIBRARY_PATH="/usr/lib/jvm/java-15-openjdk-amd64/lib/server":/out 
           --libfuzzer True
         sarif-output: sarif
     - name: Upload SARIF file(s)
